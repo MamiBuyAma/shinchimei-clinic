@@ -692,6 +692,18 @@ p { text-wrap: pretty; }
   width: 100%; height: 100%; object-fit: cover;
   opacity: 0.45;
 }
+/* 左重的暗幕：標題永遠壓在較暗的一側，換照片也不會讀不清 */
+.page-hero--image .page-hero__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    oklch(0.16 0.035 233.4 / 0.55) 0%,
+    oklch(0.16 0.035 233.4 / 0.28) 55%,
+    oklch(0.16 0.035 233.4 / 0.04) 100%
+  );
+}
 .page-hero__inner { position: relative; }
 .page-hero__kicker {
   font-family: var(--font-display);
@@ -721,8 +733,10 @@ p { text-wrap: pretty; }
 .breadcrumb a:hover { color: var(--accent); }
 .page-hero--image .breadcrumb { color: oklch(0.88 0.020 233.4); }
 
+/* 疊在照片上的小標：品牌青需再提亮才達 4.5:1（照片亮部比純色底亮） */
+.page-hero--image .page-hero__kicker { color: oklch(0.82 0.09 182); }
+
 /* 深底上的強調色改用霧藍：群青在靛藍底上對比不足 */
-.page-hero--image .page-hero__kicker,
 .page-hero--image .breadcrumb a:hover,
 .section--deep .treatment-block h3 small,
 .section--deep .service-menu__name small,
