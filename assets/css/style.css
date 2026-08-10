@@ -717,6 +717,9 @@ p { text-wrap: pretty; }
 }
 /* 明亮底上的小標再淡一階，維持品牌青的暗示又不失可讀性 */
 .page-hero--bright .page-hero__kicker { color: oklch(0.96 0.035 182); }
+
+/* 拉近構圖：減少入鏡的元素數量，讓畫面更疏朗（常見問題的樹林） */
+.page-hero__media--zoom img { transform: scale(1.7); }
 .page-hero__inner { position: relative; }
 .page-hero__kicker {
   font-family: var(--font-display);
