@@ -96,7 +96,7 @@
       '<div class="article__body">' + post.html + '</div>' +
       '<footer style="margin-top:4rem; padding-top:2rem; border-top:1px solid var(--hairline); display:flex; gap:1rem; flex-wrap:wrap;">' +
       '<a class="btn" href="index.html">回到專欄列表</a>' +
-      '<a class="btn btn--line" href="../contact.html"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 3C6.5 3 2 6.6 2 11.1c0 4 3.5 7.4 8.3 8 .3.1.8.2.9.5.1.2.1.6 0 .9l-.1.9c0 .3-.2 1 .9.6 1.1-.5 5.8-3.4 7.9-5.9 1.4-1.6 2.1-3.2 2.1-5C22 6.6 17.5 3 12 3z"/></svg>LINE@ 諮詢本療程</a>' +
+      '<a class="btn btn--consult" href="../contact.html"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 3C6.5 3 2 6.6 2 11.1c0 4 3.5 7.4 8.3 8 .3.1.8.2.9.5.1.2.1.6 0 .9l-.1.9c0 .3-.2 1 .9.6 1.1-.5 5.8-3.4 7.9-5.9 1.4-1.6 2.1-3.2 2.1-5C22 6.6 17.5 3 12 3z"/></svg>LINE@ 諮詢本療程</a>' +
       '</footer>' +
       '</div>';
 

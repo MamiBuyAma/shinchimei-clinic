@@ -1,22 +1,23 @@
 /* ============================================================
    新奇美診所 SHIN CHI MEI CLINIC — Design System
-   沉靜・深松綠 × 純白 × 霧金
+   沉靜・靛藍 × 純白 × 群青
+   全站色彩皆由靛藍主色衍生（同一色相 268–272）
    ============================================================ */
 
 :root {
-  /* Color — committed deep pine on pure white */
+  /* Color — committed indigo on pure white */
   --bg: #ffffff;
-  --ink: oklch(0.30 0.055 175);          /* 深松綠（主色/文字） */
-  --ink-strong: oklch(0.24 0.05 175);
-  --ink-soft: oklch(0.44 0.045 175);
-  --surface: oklch(0.972 0.008 175);     /* 淡青瓷底 */
-  --surface-deep: oklch(0.30 0.055 175); /* 深色段落底 = 主色 */
-  --on-deep: oklch(0.965 0.01 175);
-  --on-deep-soft: oklch(0.86 0.02 175);
-  --gold: oklch(0.58 0.085 80);          /* 霧金 */
-  --gold-soft: oklch(0.72 0.07 85);
-  --hairline: oklch(0.885 0.012 175);
-  --hairline-deep: oklch(0.42 0.04 175);
+  --ink: oklch(0.32 0.09 268);           /* 靛藍（主色/文字） */
+  --ink-strong: oklch(0.26 0.085 268);
+  --ink-soft: oklch(0.46 0.075 268);
+  --surface: oklch(0.968 0.010 268);     /* 淡靛藍底 */
+  --surface-deep: oklch(0.32 0.09 268);  /* 深色段落底 = 主色 */
+  --on-deep: oklch(0.965 0.012 268);
+  --on-deep-soft: oklch(0.855 0.030 268);
+  --accent: oklch(0.52 0.15 272);        /* 群青（淺底上的強調） */
+  --accent-soft: oklch(0.78 0.11 270);   /* 霧藍（深底上的強調） */
+  --hairline: oklch(0.885 0.018 268);
+  --hairline-deep: oklch(0.44 0.06 268);
   --line-green: #06c755;                 /* LINE 官方綠 */
   --line-green-deep: #05a648;
 
@@ -144,13 +145,14 @@ p { text-wrap: pretty; }
 .site-nav a:hover { color: var(--ink-strong); }
 .site-nav a[aria-current="page"] {
   color: var(--ink-strong);
-  border-bottom-color: var(--gold);
+  border-bottom-color: var(--accent);
 }
+/* 導覽列 CTA 走品牌靛藍；LINE 綠只保留給真正「加入 LINE」的按鈕 */
 .nav-cta {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: var(--line-green);
+  background: var(--ink);
   color: #fff !important;
   padding: 0.55rem 1.15rem;
   border-radius: 999px;
@@ -159,7 +161,7 @@ p { text-wrap: pretty; }
   border-bottom: none !important;
   transition: background 0.3s var(--ease-out);
 }
-.nav-cta:hover { background: var(--line-green-deep); }
+.nav-cta:hover { background: var(--ink-strong); }
 .nav-cta svg { width: 1.1em; height: 1.1em; }
 
 /* Mobile nav */
@@ -227,9 +229,9 @@ p { text-wrap: pretty; }
   inset: 0;
   background: linear-gradient(
     to top,
-    oklch(0.25 0.05 175 / 0.72) 0%,
-    oklch(0.25 0.05 175 / 0.18) 45%,
-    oklch(0.25 0.05 175 / 0.05) 100%
+    oklch(0.22 0.075 268 / 0.72) 0%,
+    oklch(0.22 0.075 268 / 0.18) 45%,
+    oklch(0.22 0.075 268 / 0.05) 100%
   );
 }
 .hero__content {
@@ -247,7 +249,7 @@ p { text-wrap: pretty; }
   margin-top: 1.4rem;
   max-width: 34em;
   font-size: clamp(0.98rem, 0.9rem + 0.3vw, 1.1rem);
-  color: oklch(0.95 0.01 175);
+  color: oklch(0.95 0.018 268);
   line-height: 2.1;
 }
 .hero__brandline {
@@ -255,7 +257,7 @@ p { text-wrap: pretty; }
   letter-spacing: 0.5em;
   font-size: 0.78rem;
   color: #fff;
-  text-shadow: 0 1px 12px oklch(0.25 0.05 175 / 0.55);
+  text-shadow: 0 1px 12px oklch(0.22 0.075 268 / 0.55);
   margin-bottom: 1.2rem;
   text-transform: uppercase;
 }
@@ -275,7 +277,7 @@ p { text-wrap: pretty; }
   top: clamp(4rem, 12vh, 7rem);
   right: clamp(1.5rem, 5vw, 4rem);
   color: oklch(1 0 0 / 0.88);
-  text-shadow: 0 1px 14px oklch(0.2 0.04 175 / 0.4);
+  text-shadow: 0 1px 14px oklch(0.20 0.07 268 / 0.4);
 }
 @media (max-width: 700px) { .hero .vertical-poem { display: none; } }
 
@@ -329,7 +331,7 @@ p { text-wrap: pretty; }
   font-family: var(--font-display);
   font-size: 0.68rem;
   letter-spacing: 0.3em;
-  color: var(--gold);
+  color: var(--accent);
   text-transform: uppercase;
 }
 .service-menu__desc {
@@ -339,7 +341,7 @@ p { text-wrap: pretty; }
 }
 .service-menu__arrow {
   font-family: var(--font-display);
-  color: var(--gold);
+  color: var(--accent);
   font-size: 1.2rem;
   transition: transform 0.35s var(--ease-out);
 }
@@ -386,6 +388,7 @@ p { text-wrap: pretty; }
 .btn--solid:hover { background: var(--ink-strong); }
 .btn--on-deep { border-color: var(--on-deep); color: var(--on-deep); }
 .btn--on-deep:hover { background: var(--on-deep); color: var(--ink-strong); }
+/* LINE 綠：只用於真正會開啟 LINE 的按鈕（加入好友、浮動鈕） */
 .btn--line {
   background: var(--line-green);
   border-color: var(--line-green);
@@ -394,6 +397,28 @@ p { text-wrap: pretty; }
 }
 .btn--line:hover { background: var(--line-green-deep); border-color: var(--line-green-deep); color: #fff; }
 .btn--line svg { width: 1.25em; height: 1.25em; }
+
+/* 諮詢按鈕：導向站內聯絡頁，走品牌靛藍 */
+.btn--consult {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+  border-radius: 999px;
+}
+.btn--consult:hover { background: var(--ink-strong); border-color: var(--ink-strong); color: #fff; }
+.btn--consult svg { width: 1.25em; height: 1.25em; }
+.hero .btn--consult,
+.section--deep .btn--consult {
+  background: #fff;
+  border-color: #fff;
+  color: var(--ink-strong);
+}
+.hero .btn--consult:hover,
+.section--deep .btn--consult:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent-soft);
+  color: var(--ink-strong);
+}
 
 /* ---------- Credential list (醫師資歷) ---------- */
 .cred-list {
@@ -416,7 +441,7 @@ p { text-wrap: pretty; }
   top: 1.85rem;
   width: 0.55rem;
   height: 1px;
-  background: var(--gold);
+  background: var(--accent);
 }
 @media (max-width: 720px) { .cred-list { columns: 1; } }
 
@@ -440,7 +465,7 @@ p { text-wrap: pretty; }
 .faq-item summary::after {
   content: "＋";
   font-family: var(--font-sans);
-  color: var(--gold);
+  color: var(--accent);
   transition: transform 0.3s var(--ease-out);
   flex-shrink: 0;
 }
@@ -474,7 +499,7 @@ p { text-wrap: pretty; }
 .post-card__meta {
   font-size: 0.82rem;
   letter-spacing: 0.16em;
-  color: var(--gold);
+  color: var(--accent);
   display: flex;
   gap: 1rem;
 }
@@ -483,7 +508,7 @@ p { text-wrap: pretty; }
   line-height: 1.6;
   transition: color 0.3s var(--ease-out);
 }
-.post-card:hover .post-card__title { color: var(--gold); }
+.post-card:hover .post-card__title { color: var(--accent); }
 .post-card__excerpt {
   color: var(--ink-soft);
   font-size: 0.95rem;
@@ -499,7 +524,7 @@ p { text-wrap: pretty; }
 .article__meta {
   font-size: 0.85rem;
   letter-spacing: 0.18em;
-  color: var(--gold);
+  color: var(--accent);
   margin-bottom: 1.2rem;
 }
 .article__title { font-size: var(--text-h1); }
@@ -526,12 +551,12 @@ p { text-wrap: pretty; }
 .article__body blockquote {
   margin-block: 1.6em;
   padding: 0.4em 0 0.4em 1.4em;
-  border-left: 1px solid var(--gold);
+  border-left: 1px solid var(--accent);
   color: var(--ink-soft);
   font-family: var(--font-serif);
 }
 .article__body img { margin-block: 1.6em; }
-.article__body a { color: var(--gold); border-bottom: 1px solid currentColor; }
+.article__body a { color: var(--accent); border-bottom: 1px solid currentColor; }
 .article__body hr {
   border: none;
   border-top: 1px solid var(--hairline);
@@ -578,10 +603,10 @@ p { text-wrap: pretty; }
 .contact-facts .label {
   font-family: var(--font-serif);
   letter-spacing: 0.3em;
-  color: var(--gold);
+  color: var(--accent);
   font-size: 0.95rem;
 }
-.contact-facts a:hover { color: var(--gold); }
+.contact-facts a:hover { color: var(--accent); }
 .contact-facts .value { color: var(--ink); letter-spacing: 0.04em; }
 .contact-facts .value small {
   display: block;
@@ -605,7 +630,7 @@ p { text-wrap: pretty; }
   font-family: var(--font-display);
   font-size: 0.7rem;
   letter-spacing: 0.3em;
-  color: var(--gold);
+  color: var(--accent);
   text-transform: uppercase;
 }
 .treatment-block > p { color: var(--ink-soft); max-width: var(--measure); margin-top: 0.8rem; }
@@ -657,7 +682,7 @@ p { text-wrap: pretty; }
   letter-spacing: 0.4em;
   font-size: 0.75rem;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--accent);
   margin-bottom: 1rem;
 }
 .page-hero__title { font-size: var(--text-h1); }
@@ -667,7 +692,7 @@ p { text-wrap: pretty; }
   max-width: var(--measure);
   color: var(--ink-soft);
 }
-.page-hero--image .page-hero__lede { color: oklch(0.93 0.01 175); }
+.page-hero--image .page-hero__lede { color: oklch(0.93 0.022 268); }
 .breadcrumb {
   font-size: 0.82rem;
   letter-spacing: 0.1em;
@@ -677,8 +702,16 @@ p { text-wrap: pretty; }
   gap: 0.6rem;
   flex-wrap: wrap;
 }
-.breadcrumb a:hover { color: var(--gold); }
-.page-hero--image .breadcrumb { color: oklch(0.88 0.01 175); }
+.breadcrumb a:hover { color: var(--accent); }
+.page-hero--image .breadcrumb { color: oklch(0.88 0.025 268); }
+
+/* 深底上的強調色改用霧藍：群青在靛藍底上對比不足 */
+.page-hero--image .page-hero__kicker,
+.page-hero--image .breadcrumb a:hover,
+.section--deep .treatment-block h3 small,
+.section--deep .service-menu__name small,
+.section--deep .post-card__meta,
+.section--deep .article__body a { color: var(--accent-soft); }
 
 /* ---------- Footer ---------- */
 .site-footer {
@@ -712,7 +745,7 @@ p { text-wrap: pretty; }
   gap: 1rem;
   justify-content: space-between;
   font-size: 0.8rem;
-  color: oklch(0.72 0.02 175);
+  color: oklch(0.72 0.045 268);
 }
 
 /* ---------- Reveal motion ---------- */

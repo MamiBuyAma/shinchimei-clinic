@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/style.css">
 <style>
-body { background: oklch(0.975 0.005 175); }
+body { background: oklch(0.975 0.008 268); }
 .admin-bar {
   background: var(--surface-deep);
   color: var(--on-deep);
@@ -44,12 +44,12 @@ body { background: oklch(0.975 0.005 175); }
   transition: background 0.2s;
 }
 .post-admin-list li:hover { background: var(--surface); }
-.post-admin-list li.is-active { background: var(--surface); box-shadow: inset 3px 0 0 var(--gold); }
+.post-admin-list li.is-active { background: var(--surface); box-shadow: inset 3px 0 0 var(--accent); }
 .post-admin-list .t { display: block; font-weight: 500; line-height: 1.5; margin-bottom: 0.25rem; }
 .post-admin-list .m { font-size: 0.78rem; color: var(--ink-soft); display: flex; gap: 0.8rem; flex-wrap: wrap; }
 .badge { display: inline-block; font-size: 0.7rem; padding: 0.1rem 0.5rem; border-radius: 999px; letter-spacing: 0.08em; }
 .badge--seed { background: var(--surface); border: 1px solid var(--hairline); color: var(--ink-soft); }
-.badge--local { background: oklch(0.93 0.05 85); color: oklch(0.45 0.09 80); }
+.badge--local { background: oklch(0.92 0.055 272); color: oklch(0.42 0.14 272); }
 .badge--hidden { background: oklch(0.93 0.02 20); color: oklch(0.5 0.12 25); }
 
 .field { margin-bottom: 1.2rem; }
@@ -63,7 +63,7 @@ body { background: oklch(0.975 0.005 175); }
   color: var(--ink);
 }
 .field input:focus, .field select:focus, .field textarea:focus, .editor:focus {
-  outline: 2px solid var(--gold-soft);
+  outline: 2px solid var(--accent-soft);
   outline-offset: 1px;
 }
 .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
@@ -104,7 +104,7 @@ body { background: oklch(0.975 0.005 175); }
 .editor:empty::before { content: "在此開始撰寫文章內容…"; color: var(--ink-soft); }
 .editor h2 { font-size: 1.4rem; margin: 1.4em 0 0.6em; border-bottom: 1px solid var(--hairline); padding-bottom: 0.4rem; }
 .editor h3 { font-size: 1.15rem; margin: 1.2em 0 0.5em; }
-.editor blockquote { border-left: 2px solid var(--gold); padding-left: 1em; color: var(--ink-soft); margin: 1em 0; }
+.editor blockquote { border-left: 2px solid var(--accent); padding-left: 1em; color: var(--ink-soft); margin: 1em 0; }
 .editor img { max-width: 100%; }
 .editor ul, .editor ol { padding-left: 1.6em; }
 #html-source { display: none; width: 100%; min-height: 380px; font-family: ui-monospace, monospace; font-size: 0.85rem; padding: 1.2rem; border: 1px solid var(--hairline); }
@@ -115,11 +115,11 @@ body { background: oklch(0.975 0.005 175); }
 .btn--danger:hover { background: oklch(0.55 0.15 25); color: #fff; }
 
 .hint {
-  background: oklch(0.96 0.02 85);
-  border: 1px solid oklch(0.88 0.04 85);
+  background: oklch(0.962 0.022 268);
+  border: 1px solid oklch(0.875 0.045 268);
   padding: 1rem 1.2rem;
   font-size: 0.85rem;
-  color: oklch(0.42 0.06 80);
+  color: oklch(0.40 0.09 268);
   line-height: 1.8;
   margin-bottom: 1.6rem;
 }
