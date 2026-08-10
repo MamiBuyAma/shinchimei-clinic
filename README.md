@@ -1,25 +1,42 @@
 # 新奇美診所官方網站
 
-沉靜質感的醫美診所形象網站（參考 FORAM 風格）：靛藍 × 純白 × 群青，強化「新奇美診所」SEO。
+沉靜質感的醫美診所形象網站（參考 FORAM 風格）：靛藍 × 純白 × 品牌青，強化「新奇美診所」SEO。
+
+## 品牌識別
+
+英文名為 **New Chi Mei Clinic**。三大專科：美容醫學專科 Cosmetic Surgery、婦產專科 Obs & Gyn、家醫專科 Family Medicine。
+
+LOGO 已向量化，放在 `assets/img/`：
+
+| 檔案 | 用途 |
+|---|---|
+| `logo-ncm.svg` | NCM 字標（深色版，用於白底頁首） |
+| `logo-ncm-light.svg` | NCM 字標（白色版，用於深色底） |
+| `logo-lockup.svg` | 含 New Chi Mei Clinic 字樣的完整組合（深色版） |
+| `logo-lockup-light.svg` | 完整組合（白色版，用於頁尾） |
+| `favicon.svg` | 瀏覽器分頁圖示（深底＋品牌十字） |
+| `og-cover.jpg` | 社群分享預覽圖（品牌卡） |
 
 ## 品牌色
 
-全站色彩皆由靛藍主色衍生，統一在 OKLCH 色相 268–272：
+全站色彩直接取樣自 LOGO：深底 `#021C29`（OKLCH 色相 233）與十字 `#40B9A8`（色相 182）。
 
 | 用途 | 權杖 | 色值 |
 |---|---|---|
-| 主色／內文 | `--ink` | 靛藍 `#1F2F60` |
-| 標題 | `--ink-strong` | 深靛 `#131F4C` |
-| 次要文字 | `--ink-soft` | 霧靛 `#465682` |
-| 淺色區塊底 | `--surface` | 淡靛 `#F1F4FB` |
-| 強調（淺底） | `--accent` | 群青 `#4C5FBE` |
-| 強調（深底） | `--accent-soft` | 霧藍 `#9CB4FE` |
+| 主色／內文 | `--ink` | 靛藍 `#033247` |
+| 標題 | `--ink-strong` | 深靛 `#002333` |
+| 次要文字 | `--ink-soft` | 霧靛 `#3B5D70` |
+| 淺色區塊底 | `--surface` | 淡靛 `#EFF5F9` |
+| 深色區塊底 | `--surface-deep` | **LOGO 深底 `#021C29`** |
+| 強調（淺底） | `--accent` | 品牌青加深 `#037F71` |
+| 強調（深底） | `--accent-soft` | **LOGO 品牌青 `#40B9A8`** |
 
 改色只需修改 `assets/css/style.css` 最上方的 `:root` 區塊，全站自動套用。
-所有文字組合皆通過 WCAG AA 對比度檢驗（最低 5.18，標準 4.5）。
+所有文字組合皆通過 WCAG AA 對比度檢驗（最低 4.51，標準 4.5）。
 
-LINE 官方綠 `#06C755` 僅保留給「真正會開啟 LINE」的按鈕（聯絡頁加好友鈕、右下角浮動鈕）；
-其餘導向站內的諮詢按鈕一律使用品牌靛藍。
+LINE 綠僅保留給「真正會開啟 LINE」的按鈕（聯絡頁加好友鈕、右下角浮動鈕）；
+其餘導向站內的諮詢按鈕一律使用品牌靛藍。LINE 綠採加深版 `#04803A`
+（官方綠 `#06C755` 配白字僅 2.26:1，對長輩不友善；加深後為 5.06:1）。
 
 ## 線上網址
 
@@ -74,10 +91,11 @@ git add -A && git commit -m "更新內容" && git push
 ## 上線前待辦（已在頁面中預留欄位）
 
 - [x] 全站網域：目前為 `https://mamibuyama.github.io/shinchimei-clinic/`。日後若購買自有網域，全站搜尋 `mamibuyama.github.io/shinchimei-clinic` 一次替換即可。
-- [ ] LINE 官方帳號：將 `@shinchimei` 與 `https://line.me/R/ti/p/@shinchimei` 替換為實際 ID 與加好友連結（`contact.html` 與各頁 footer）。
+- [ ] LINE 官方帳號：將 `@newchimei` 與 `https://line.me/R/ti/p/@newchimei` 替換為實際 ID 與加好友連結（`contact.html` 與各頁 footer）。
 - [ ] `contact.html`：放入 LINE QR Code 圖片、門診時間、交通資訊、Google 地圖 iframe。
 - [ ] 各服務頁「（待填入）」療程項目：補上實際療程名稱、儀器、價格帶。
 - [ ] 醫師姓名與照片（`doctors.html` 目前僅列資歷，未具名）。
+- [ ] 網址中的 `shinchimei-clinic` 為建站時的舊拼法。網址可正常使用，日後改用自有網域時即可一併更正。
 - [ ] 圖片目前使用 Unsplash 示意圖，建議替換為診所實拍照。
 - [ ] 地址目前寫「台中市西區忠明路一號」（原需求文字為「台中師西區」，已按台中市西區理解，若有誤請修正）。
 

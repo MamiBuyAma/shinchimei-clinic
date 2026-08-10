@@ -1,25 +1,28 @@
 /* ============================================================
-   新奇美診所 SHIN CHI MEI CLINIC — Design System
-   沉靜・靛藍 × 純白 × 群青
-   全站色彩皆由靛藍主色衍生（同一色相 268–272）
+   新奇美診所 NEW CHI MEI CLINIC — Design System
+   沉靜・靛藍 × 純白 × 品牌青
+   色彩取自品牌 LOGO：深底 #021C29（色相 233）、十字 #40B9A8（色相 182）
+   全站色彩皆由這兩個色相衍生，改色只需調整此區塊
    ============================================================ */
 
 :root {
-  /* Color — committed indigo on pure white */
+  /* Color — sampled from the brand logo */
   --bg: #ffffff;
-  --ink: oklch(0.32 0.09 268);           /* 靛藍（主色/文字） */
-  --ink-strong: oklch(0.26 0.085 268);
-  --ink-soft: oklch(0.46 0.075 268);
-  --surface: oklch(0.968 0.010 268);     /* 淡靛藍底 */
-  --surface-deep: oklch(0.32 0.09 268);  /* 深色段落底 = 主色 */
-  --on-deep: oklch(0.965 0.012 268);
-  --on-deep-soft: oklch(0.855 0.030 268);
-  --accent: oklch(0.52 0.15 272);        /* 群青（淺底上的強調） */
-  --accent-soft: oklch(0.78 0.11 270);   /* 霧藍（深底上的強調） */
-  --hairline: oklch(0.885 0.018 268);
-  --hairline-deep: oklch(0.44 0.06 268);
-  --line-green: #06c755;                 /* LINE 官方綠 */
-  --line-green-deep: #05a648;
+  --ink: oklch(0.300 0.060 233.4);         /* 靛藍（主色/文字） */
+  --ink-strong: oklch(0.240 0.050 233.4);
+  --ink-soft: oklch(0.460 0.050 233.4);
+  --surface: oklch(0.968 0.008 233.4);     /* 淡靛底 */
+  --surface-deep: oklch(0.214 0.041 233.4);/* 深色段落底 = LOGO 深底 #021C29 */
+  --on-deep: oklch(0.965 0.010 233.4);
+  --on-deep-soft: oklch(0.855 0.025 233.4);
+  --accent: oklch(0.534 0.095 182.0);      /* 品牌青加深版（淺底上，對比 4.9:1） */
+  --accent-soft: oklch(0.715 0.109 182.0); /* 品牌青原色 #40B9A8（深底上） */
+  --hairline: oklch(0.885 0.015 233.4);
+  --hairline-deep: oklch(0.360 0.040 233.4);
+  /* LINE 綠加深版：官方綠 #06C755 配白字僅 2.26:1，長輩讀不清楚。
+     加深至 5.06:1；LINE 圖示與文案仍保有辨識度。 */
+  --line-green: #04803A;
+  --line-green-deep: #036830;
 
   /* Type */
   --font-display: "Marcellus", "Noto Serif TC", serif;
@@ -117,21 +120,34 @@ p { text-wrap: pretty; }
 }
 .brand {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
   line-height: 1.25;
 }
+.brand__mark {
+  width: auto;
+  height: 2.35rem;
+  flex-shrink: 0;
+}
+.brand__text { display: flex; flex-direction: column; }
 .brand__zh {
   font-family: var(--font-serif);
-  font-size: 1.35rem;
-  letter-spacing: 0.34em;
+  font-size: 1.2rem;
+  letter-spacing: 0.3em;
   color: var(--ink-strong);
 }
 .brand__en {
   font-family: var(--font-display);
-  font-size: 0.62rem;
-  letter-spacing: 0.42em;
+  font-size: 0.6rem;
+  letter-spacing: 0.34em;
   color: var(--ink-soft);
   text-transform: uppercase;
+}
+@media (max-width: 420px) {
+  .brand { gap: 0.6rem; }
+  .brand__mark { height: 1.9rem; }
+  .brand__zh { font-size: 1.02rem; letter-spacing: 0.22em; }
+  .brand__en { font-size: 0.52rem; letter-spacing: 0.24em; }
 }
 .site-nav { display: flex; align-items: center; gap: clamp(1rem, 2.5vw, 2.2rem); }
 .site-nav a {
@@ -229,9 +245,9 @@ p { text-wrap: pretty; }
   inset: 0;
   background: linear-gradient(
     to top,
-    oklch(0.22 0.075 268 / 0.72) 0%,
-    oklch(0.22 0.075 268 / 0.18) 45%,
-    oklch(0.22 0.075 268 / 0.05) 100%
+    oklch(0.16 0.035 233.4 / 0.72) 0%,
+    oklch(0.16 0.035 233.4 / 0.18) 45%,
+    oklch(0.16 0.035 233.4 / 0.05) 100%
   );
 }
 .hero__content {
@@ -249,7 +265,7 @@ p { text-wrap: pretty; }
   margin-top: 1.4rem;
   max-width: 34em;
   font-size: clamp(0.98rem, 0.9rem + 0.3vw, 1.1rem);
-  color: oklch(0.95 0.018 268);
+  color: oklch(0.95 0.014 233.4);
   line-height: 2.1;
 }
 .hero__brandline {
@@ -257,7 +273,7 @@ p { text-wrap: pretty; }
   letter-spacing: 0.5em;
   font-size: 0.78rem;
   color: #fff;
-  text-shadow: 0 1px 12px oklch(0.22 0.075 268 / 0.55);
+  text-shadow: 0 1px 12px oklch(0.16 0.035 233.4 / 0.55);
   margin-bottom: 1.2rem;
   text-transform: uppercase;
 }
@@ -277,7 +293,7 @@ p { text-wrap: pretty; }
   top: clamp(4rem, 12vh, 7rem);
   right: clamp(1.5rem, 5vw, 4rem);
   color: oklch(1 0 0 / 0.88);
-  text-shadow: 0 1px 14px oklch(0.20 0.07 268 / 0.4);
+  text-shadow: 0 1px 14px oklch(0.15 0.032 233.4 / 0.4);
 }
 @media (max-width: 700px) { .hero .vertical-poem { display: none; } }
 
@@ -692,7 +708,7 @@ p { text-wrap: pretty; }
   max-width: var(--measure);
   color: var(--ink-soft);
 }
-.page-hero--image .page-hero__lede { color: oklch(0.93 0.022 268); }
+.page-hero--image .page-hero__lede { color: oklch(0.93 0.018 233.4); }
 .breadcrumb {
   font-size: 0.82rem;
   letter-spacing: 0.1em;
@@ -703,7 +719,7 @@ p { text-wrap: pretty; }
   flex-wrap: wrap;
 }
 .breadcrumb a:hover { color: var(--accent); }
-.page-hero--image .breadcrumb { color: oklch(0.88 0.025 268); }
+.page-hero--image .breadcrumb { color: oklch(0.88 0.020 233.4); }
 
 /* 深底上的強調色改用霧藍：群青在靛藍底上對比不足 */
 .page-hero--image .page-hero__kicker,
@@ -731,6 +747,41 @@ p { text-wrap: pretty; }
 .site-footer__brand .brand__zh { color: var(--on-deep); }
 .site-footer__brand .brand__en { color: var(--on-deep-soft); }
 .site-footer__brand p { margin-top: 1rem; line-height: 2; }
+.footer-lockup {
+  width: min(230px, 70%);
+  height: auto;
+  margin-bottom: 1.3rem;
+}
+/* 專科標示：取自品牌識別的三行專科 */
+.specialties {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.6rem;
+  margin-top: 1.2rem;
+}
+.specialties li {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-serif);
+  font-size: 0.92rem;
+  letter-spacing: 0.14em;
+  color: var(--on-deep);
+}
+.specialties small {
+  font-family: var(--font-display);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  color: var(--accent-soft);
+  text-transform: uppercase;
+}
+.section--surface .specialties li,
+.page-hero .specialties li { color: var(--ink-strong); }
+.section--surface .specialties small,
+.page-hero .specialties small { color: var(--accent); }
+/* 疊在主視覺照片上時加陰影，避免落在亮部而讀不清 */
+.hero .specialties li { color: #fff; text-shadow: 0 1px 10px oklch(0.16 0.035 233.4 / 0.75); }
+.hero .specialties small { color: var(--accent-soft); text-shadow: 0 1px 10px oklch(0.16 0.035 233.4 / 0.85); }
 .site-footer h4 {
   color: var(--on-deep);
   font-size: 1rem;
@@ -745,7 +796,7 @@ p { text-wrap: pretty; }
   gap: 1rem;
   justify-content: space-between;
   font-size: 0.8rem;
-  color: oklch(0.72 0.045 268);
+  color: oklch(0.72 0.035 233.4);
 }
 
 /* ---------- Reveal motion ---------- */
@@ -780,7 +831,7 @@ html.no-anim .reveal { opacity: 1 !important; transform: none !important; transi
   color: #fff;
   padding: 0.8rem 1.3rem;
   border-radius: 999px;
-  box-shadow: 0 8px 24px oklch(0.4 0.1 150 / 0.35);
+  box-shadow: 0 8px 24px oklch(0.35 0.09 150 / 0.4);
   font-size: 0.92rem;
   letter-spacing: 0.08em;
   transition: transform 0.3s var(--ease-out), background 0.3s var(--ease-out);
