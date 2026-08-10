@@ -2,6 +2,11 @@
 
 沉靜質感的醫美診所形象網站（參考 FORAM 風格）：深松綠 × 純白 × 霧金，強化「新奇美診所」SEO。
 
+## 線上網址
+
+正式網址：<https://mamibuyama.github.io/shinchimei-clinic/>
+（GitHub Pages 免費託管，24 小時可瀏覽，不需要開著電腦）
+
 ## 如何預覽
 
 直接雙擊 `index.html` 即可在瀏覽器開啟；或在此資料夾執行：
@@ -11,6 +16,16 @@ python3 -m http.server 8735
 ```
 
 再開啟 <http://localhost:8735>。
+
+## 如何更新網站
+
+修改任何檔案後，在此資料夾依序執行：
+
+```bash
+git add -A && git commit -m "更新內容" && git push
+```
+
+約 1 分鐘後線上網站自動更新。
 
 ## 網站架構
 
@@ -39,7 +54,7 @@ python3 -m http.server 8735
 
 ## 上線前待辦（已在頁面中預留欄位）
 
-- [ ] 全站網域：將 `https://www.shinchimei-clinic.tw/` 替換為實際網域（各頁 `<link rel="canonical">`、og 標籤、JSON-LD、`sitemap.xml`、`robots.txt`）。
+- [x] 全站網域：目前為 `https://mamibuyama.github.io/shinchimei-clinic/`。日後若購買自有網域，全站搜尋 `mamibuyama.github.io/shinchimei-clinic` 一次替換即可。
 - [ ] LINE 官方帳號：將 `@shinchimei` 與 `https://line.me/R/ti/p/@shinchimei` 替換為實際 ID 與加好友連結（`contact.html` 與各頁 footer）。
 - [ ] `contact.html`：放入 LINE QR Code 圖片、門診時間、交通資訊、Google 地圖 iframe。
 - [ ] 各服務頁「（待填入）」療程項目：補上實際療程名稱、儀器、價格帶。

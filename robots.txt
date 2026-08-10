@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 
-Sitemap: https://www.shinchimei-clinic.tw/sitemap.xml
+Sitemap: https://mamibuyama.github.io/shinchimei-clinic/sitemap.xml
