@@ -704,6 +704,19 @@ p { text-wrap: pretty; }
     oklch(0.16 0.035 233.4 / 0.04) 100%
   );
 }
+/* 明亮版主視覺：讓照片本身的光線更透出來（用於醫美專欄的水下光束）。
+   暗幕左側加重、右側幾乎全開，光束保持明亮而標題仍讀得清楚。 */
+.page-hero--bright .page-hero__media img { opacity: 0.66; }
+.page-hero--bright .page-hero__media::after {
+  background: linear-gradient(
+    100deg,
+    oklch(0.16 0.035 233.4 / 0.55) 0%,
+    oklch(0.16 0.035 233.4 / 0.22) 55%,
+    oklch(0.16 0.035 233.4 / 0.02) 100%
+  );
+}
+/* 明亮底上的小標再淡一階，維持品牌青的暗示又不失可讀性 */
+.page-hero--bright .page-hero__kicker { color: oklch(0.96 0.035 182); }
 .page-hero__inner { position: relative; }
 .page-hero__kicker {
   font-family: var(--font-display);
