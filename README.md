@@ -43,6 +43,82 @@ LINE 綠僅保留給「真正會開啟 LINE」的按鈕（聯絡頁加好友鈕�
 正式網址：<https://mamibuyama.github.io/shinchimei-clinic/>
 （GitHub Pages 免費託管，24 小時可瀏覽，不需要開著電腦）
 
+## 更換網域（買了自己的網域後）
+
+假設新網域是 `newchimei.com.tw`，把下面每一處的 `newchimei.com.tw` 換成你實際的網域。
+四個步驟，順序不要顛倒。
+
+### 步驟 1：到網域註冊商設定 DNS
+
+登入你買網域的地方（GoDaddy、Gandi、Cloudflare、中華電信…），找到「DNS 設定」／
+「網域名稱解析」，新增以下紀錄：
+
+| 類型 | 主機名稱 | 指向 |
+|---|---|---|
+| A | @ | `185.199.108.153` |
+| A | @ | `185.199.109.153` |
+| A | @ | `185.199.110.153` |
+| A | @ | `185.199.111.153` |
+| CNAME | www | `mamibuyama.github.io` |
+
+四筆 A 紀錄都要加（GitHub 的四台伺服器，其中一台故障時仍能連線）。
+`@` 代表根網域本身；有些商家寫成空白或網域全名，依該介面的說明填即可。
+CNAME 的值結尾有沒有句點都可以，依介面要求。
+
+> 想額外支援 IPv6 的話，再加四筆 AAAA 指向 `2606:50c0:8000::153`、`2606:50c0:8001::153`、
+> `2606:50c0:8002::153`、`2606:50c0:8003::153`。非必要，可略過。
+
+DNS 生效通常要 10 分鐘到數小時。可用這個指令確認是否生效：
+
+```bash
+dig +short newchimei.com.tw
+```
+
+看到那四個 185.199.x.153 就代表好了。
+
+### 步驟 2：更新網站裡的網址設定
+
+在專案資料夾執行（把網域換成你的）：
+
+```bash
+bash scripts/set-domain.sh newchimei.com.tw
+```
+
+這會自動替換全站 37 處 SEO 網址（canonical／og／JSON-LD／sitemap.xml／robots.txt），
+並建立 GitHub Pages 需要的 `CNAME` 檔。執行完會顯示替換結果，有殘留會直接報錯。
+
+接著上傳：
+
+```bash
+git add -A && git commit -m "切換自訂網域" && git push
+```
+
+### 步驟 3：在 GitHub 後台指定網域
+
+前往 <https://github.com/MamiBuyAma/shinchimei-clinic/settings/pages>：
+
+1. **Custom domain** 欄位填入 `newchimei.com.tw`，按 **Save**
+2. 等待下方出現綠色勾勾「DNS check successful」（DNS 未生效前會顯示錯誤，屬正常）
+3. 憑證簽發完成後，**Enforce HTTPS** 的勾選框才會變成可勾選——勾起來
+
+> 憑證簽發通常幾分鐘，最長可能到 24 小時。這段期間網站仍可用 http 開啟。
+
+### 步驟 4：確認
+
+```bash
+curl -sI https://newchimei.com.tw | head -1
+```
+
+出現 `HTTP/2 200` 就完成了。舊的 `mamibuyama.github.io/shinchimei-clinic` 網址
+會自動轉址到新網域，先前分享出去的連結不會失效。
+
+### 換完之後別忘了
+
+- [ ] LINE 官方帳號、Google 商家、名片、DM 上的網址一併更新
+- [ ] Google Search Console 重新提交 `https://newchimei.com.tw/sitemap.xml`
+- [ ] 若已有 Google Analytics，更新資源設定中的網址
+- [ ] `CNAME` 檔請保留在專案裡，刪掉的話自訂網域會失效
+
 ## 如何預覽
 
 直接雙擊 `index.html` 即可在瀏覽器開啟；或在此資料夾執行：
@@ -91,13 +167,12 @@ git add -A && git commit -m "更新內容" && git push
 
 ## 上線前待辦（已在頁面中預留欄位）
 
-- [x] 全站網域：目前為 `https://mamibuyama.github.io/shinchimei-clinic/`。日後若購買自有網域，全站搜尋 `mamibuyama.github.io/shinchimei-clinic` 一次替換即可。
+- [ ] 全站網域：買了自有網域後，依上方「更換網域」章節操作（有一鍵腳本）。
 - [ ] LINE 官方帳號：將 `@newchimei` 與 `https://line.me/R/ti/p/@newchimei` 替換為實際 ID 與加好友連結（`contact.html` 與各頁 footer）。
 - [ ] `contact.html`：放入 LINE QR Code 圖片、門診時間、交通資訊、Google 地圖 iframe。
 - [ ] 各服務頁「（待填入）」療程項目：補上實際療程名稱、儀器、價格帶。
 - [ ] 醫師姓名與照片（`doctors.html` 目前僅列資歷，未具名）。
 - [ ] **面膜產品頁**（`products/mask.html`）：正式品名（目前暫定「NCM 舒緩保濕面膜」）、三張產品實拍、全成分表、容量／入數／效期／產地、化粧品產品登錄碼、售價。
-- [ ] 網址中的 `shinchimei-clinic` 為建站時的舊拼法。網址可正常使用，日後改用自有網域時即可一併更正。
 - [ ] 圖片目前使用 Unsplash 示意圖，建議替換為診所實拍照。
 - [ ] 地址目前寫「台中市西區忠明路一號」（原需求文字為「台中師西區」，已按台中市西區理解，若有誤請修正）。
 
