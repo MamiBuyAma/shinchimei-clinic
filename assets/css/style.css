@@ -870,3 +870,152 @@ html.no-anim .reveal { opacity: 1 !important; transform: none !important; transi
   .line-float span { display: none; }
   .line-float { padding: 0.9rem; }
 }
+
+/* ============================================================
+   產品頁（自有品牌保養品）
+   ============================================================ */
+
+/* 色彩主導的產品主視覺：不放照片，由品牌色與字體撐起質感 */
+.product-hero {
+  background: var(--surface-deep);
+  color: var(--on-deep);
+  padding-block: clamp(4.5rem, 11vw, 8rem);
+  position: relative;
+  overflow: hidden;
+}
+/* 一道極淡的光暈，避免大面積深色顯得平板 */
+.product-hero::before {
+  content: "";
+  position: absolute;
+  inset: -30% -10% auto auto;
+  width: min(680px, 70%);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, oklch(0.715 0.109 182 / 0.16) 0%, transparent 68%);
+  pointer-events: none;
+}
+.product-hero__inner { position: relative; }
+.product-hero .breadcrumb { color: oklch(0.86 0.02 233.4); }
+.product-hero__kicker {
+  font-family: var(--font-display);
+  letter-spacing: 0.42em;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--accent-soft);
+  margin-bottom: 1.1rem;
+}
+.product-hero__title {
+  font-size: var(--text-h1);
+  color: #fff;
+  margin-bottom: 1.2rem;
+}
+.product-hero__lede {
+  max-width: 40ch;
+  color: var(--on-deep-soft);
+  line-height: 2.1;
+}
+.product-hero__meta {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 2.2rem;
+  margin-top: 2rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--hairline-deep);
+}
+.product-hero__meta li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  font-size: 0.95rem;
+  color: var(--on-deep);
+}
+.product-hero__meta small {
+  font-family: var(--font-display);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-soft);
+}
+
+/* 產品實拍待放置的框位 */
+.photo-slots {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+  gap: clamp(1rem, 2.5vw, 1.8rem);
+}
+.photo-slot {
+  aspect-ratio: 4 / 5;
+  border: 1px dashed var(--hairline-deep);
+  background: var(--surface);
+  display: grid;
+  place-content: center;
+  gap: 0.5rem;
+  text-align: center;
+  padding: 1.5rem;
+}
+.photo-slot strong {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 1.05rem;
+  color: var(--ink-strong);
+  letter-spacing: 0.1em;
+}
+.photo-slot span { font-size: 0.83rem; color: var(--ink-soft); line-height: 1.8; }
+.photo-slot svg { width: 2rem; height: 2rem; margin: 0 auto 0.3rem; color: var(--accent); }
+
+/* 使用步驟：這是真正的先後順序，編號有其意義 */
+.steps { list-style: none; counter-reset: step; display: grid; gap: 0; }
+.steps li {
+  counter-increment: step;
+  display: grid;
+  grid-template-columns: 3.2rem 1fr;
+  gap: 1.4rem;
+  padding-block: 1.5rem;
+  border-bottom: 1px solid var(--hairline);
+  align-items: baseline;
+}
+.steps li::before {
+  content: counter(step, decimal-leading-zero);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+}
+.steps strong {
+  display: block;
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 1.08rem;
+  color: var(--ink-strong);
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.08em;
+}
+.steps p { color: var(--ink-soft); font-size: 0.97rem; max-width: 56ch; }
+
+/* 注意事項／適用時機
+   標記符號用絕對定位，li 內容才能是任意的行內元素組合。
+   （若用 grid，<strong> 之後的文字節點會變成第三個 grid 項目而被擠成直排） */
+.notice-list { list-style: none; display: grid; gap: 0.9rem; max-width: var(--measure); }
+.notice-list li {
+  position: relative;
+  padding-left: 1.9rem;
+  color: var(--ink-soft);
+  font-size: 0.97rem;
+  line-height: 1.9;
+}
+.notice-list li::before {
+  content: "";
+  position: absolute;
+  left: 0.35rem;
+  top: 0.72em;
+  width: 0.45rem;
+  height: 0.45rem;
+  border: 1px solid var(--accent);
+  transform: rotate(45deg);
+}
+.notice-list strong {
+  color: var(--ink-strong);
+  font-weight: 500;
+  font-family: var(--font-serif);
+}

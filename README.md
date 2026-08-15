@@ -78,6 +78,7 @@ git add -A && git commit -m "更新內容" && git push
 | 常見問題 | `faq.html` |
 | LINE@ 諮詢・聯絡我們 | `contact.html` |
 | 醫美專欄（列表／文章） | `blog/index.html`、`blog/post.html` |
+| 自有品牌保養品（面膜） | `products/mask.html` |
 | **專欄管理後台（部落格編輯器）** | `admin/index.html` |
 
 ## 醫美專欄更新流程
@@ -95,6 +96,7 @@ git add -A && git commit -m "更新內容" && git push
 - [ ] `contact.html`：放入 LINE QR Code 圖片、門診時間、交通資訊、Google 地圖 iframe。
 - [ ] 各服務頁「（待填入）」療程項目：補上實際療程名稱、儀器、價格帶。
 - [ ] 醫師姓名與照片（`doctors.html` 目前僅列資歷，未具名）。
+- [ ] **面膜產品頁**（`products/mask.html`）：正式品名（目前暫定「NCM 舒緩保濕面膜」）、三張產品實拍、全成分表、容量／入數／效期／產地、化粧品產品登錄碼、售價。
 - [ ] 網址中的 `shinchimei-clinic` 為建站時的舊拼法。網址可正常使用，日後改用自有網域時即可一併更正。
 - [ ] 圖片目前使用 Unsplash 示意圖，建議替換為診所實拍照。
 - [ ] 地址目前寫「台中市西區忠明路一號」（原需求文字為「台中師西區」，已按台中市西區理解，若有誤請修正）。
